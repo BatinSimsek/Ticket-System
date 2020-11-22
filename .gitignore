@@ -2,8 +2,10 @@
 /public/hot
 /public/storage
 /public/css/app.css
+/public/css
+/public/img
 /public/js/app.js
-/storage/*.key
+/storage/key
 /vendor
 .env
 .env.backup
@@ -12,3 +14,4 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
