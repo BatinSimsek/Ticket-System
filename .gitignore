@@ -1,11 +1,11 @@
 /node_modules
 /public/hot
 /public/storage
-/public/css/*.app.css
-/public/*.css
-/public/*.img
-/public/js/*.app.js
-/storage/*.key
+/public/css/app.css
+/public/css
+/public/img
+/public/js/app.js
+/storage/key
 /vendor
 .env
 .env.backup
