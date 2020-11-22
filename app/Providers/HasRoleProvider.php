@@ -27,6 +27,7 @@ class HasRoleProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Maakt custom variable
         Blade::if('hasrole', function ($expression){
             if (Auth::user()) {
                 if (Auth::user()->hasAnyRole($expression)){

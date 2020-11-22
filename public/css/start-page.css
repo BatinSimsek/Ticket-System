@@ -1,0 +1,29 @@
+/*Login-page*/
+
+.fist-blade {
+  background-color: #F5F5F5;
+  height: 100%;
+  width: 100%;
+}
+
+.fist-blade h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.fist-blade .info-box {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 4em;
+}
+
+.fist-blade .info-box .first-blade-img {
+  margin-right: 1em;
+}
+
+.second-blade {
+  background-color: #00539C;
+  height: 100%;
+  width: 100%;
+}
+
