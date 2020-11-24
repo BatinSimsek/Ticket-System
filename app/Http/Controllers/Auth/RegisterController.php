@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        // Geeft user een user role automatisch
         $role = Role::select('id')->where('name', 'user')->first();
 
         $user->roles()->attach($role);
