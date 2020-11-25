@@ -49,7 +49,7 @@
                         @endhasrole
 
                         @hasrole('User')
-                        <p>2</p>
+                            <p>2</p>
                         @endhasrole
 
 
@@ -94,6 +94,9 @@
             @yield('content')
         </main>
 
+        <footer>
+
+        </footer>
 
     </div>
 </body>
