@@ -44,6 +44,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Role');
     }
 
+    public function ticket(){
+        return $this->belongsTo('App\Models\Ticket');
+    }
+
     public function hasAnyRoles($roles){
         return null !== $this->roles()->whereIn('name', $roles)->first();
     }

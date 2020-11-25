@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMalfunctionsUserTable extends Migration
+class CreateTicketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,16 @@ class CreateMalfunctionsUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('malfunctions_user', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->integer('malfunctions_id');
+            $table->unsignedBigInteger('user_id');
+            $table->string('ticket');
+            $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
+
         });
     }
 
@@ -27,6 +33,6 @@ class CreateMalfunctionsUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('malfunctions_user');
+        Schema::dropIfExists('tickets');
     }
 }
