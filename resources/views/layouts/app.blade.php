@@ -43,7 +43,9 @@
                     <ul class="navbar-nav ml-auto">
 
                         @hasrole('Admin')
-                            <p>1</p>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('Admin.index') }}">Information User</a>
+                        </li>
                         @endhasrole
 
                         @hasrole('User')

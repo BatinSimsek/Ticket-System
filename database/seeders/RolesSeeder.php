@@ -18,7 +18,7 @@ class RolesSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
             [
                 'name' => 'User',

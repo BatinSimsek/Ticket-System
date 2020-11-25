@@ -2,21 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class MalfunctionsController extends Controller
 {
-
-    /**
-     * Instantiate a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -24,9 +13,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-
-        return view('Admin.index', ['users' => $users]);
+        //
     }
 
     /**
