@@ -22,24 +22,21 @@
         <div class="info">
 
             <div class="info-box">
-                <img src="" alt="">
-
+                <img src="{{ asset('img/hps.svg') }}" alt="hps.svg">
                 <h3>Who are we</h3>
-
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam cum cumque deleniti distinctio eos, error ex facere facilis in inventore laboriosam molestiae mollitia natus, placeat rem ullam unde vitae.</p>
             </div>
 
             <div class="info-box">
-                <img src="" alt="">
-
+                <img src="{{ asset('img/hps.svg') }}" alt="hps.svg">
                 <h3>Who are we</h3>
-
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam cum cumque deleniti distinctio eos, error ex facere facilis in inventore laboriosam molestiae mollitia natus, placeat rem ullam unde vitae.</p>
             </div>
 
             <div class="info-box">
-                <img src="" alt="">
-
+                <img src="{{ asset('img/hps.svg') }}" alt="hps.svg">
                 <h3>Who are we</h3>
-
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam cum cumque deleniti distinctio eos, error ex facere facilis in inventore laboriosam molestiae mollitia natus, placeat rem ullam unde vitae.</p>
             </div>
 
         </div>
@@ -50,8 +47,39 @@
 
 <div class="third-blade">
     <div class="container">
+        <h2>What do we provide</h2>
 
-        
+        <div class="items">
+
+            <div class="item">
+                <div class="productinfo">
+                    <img src="{{ asset('img/callcenter.svg') }}" alt="call.svg">
+                    <h3>Ticket</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium alias blanditiis corporis, cupiditate eligendi eum maxime quidem. Atque beatae, ex id impedit itaque magnam maiores non quaerat quo suscipit?</p>
+                    <p>link</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="productinfo">
+                    <img src="{{ asset('img/callcenter.svg') }}" alt="call.svg">
+                    <h3>Ticket</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium alias blanditiis corporis, cupiditate eligendi eum maxime quidem. Atque beatae, ex id impedit itaque magnam maiores non quaerat quo suscipit?</p>
+                    <p>link</p>
+
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="productinfo">
+                    <img src="{{ asset('img/callcenter.svg') }}" alt="call.svg">
+                    <h3>Ticket</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium alias blanditiis corporis, cupiditate eligendi eum maxime quidem. Atque beatae, ex id impedit itaque magnam maiores non quaerat quo suscipit?</p>
+                    <p>link</p>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 </div>
