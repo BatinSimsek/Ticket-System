@@ -2,8 +2,6 @@
 
 .fist-blade{
     background-color: #F5F5F5;
-    height: 100%;
-    width: 100%;
 
     h1{
         padding-top: 0.5em;
@@ -23,6 +21,14 @@
 
 .second-blade{
     background-color: #00539C;
-    height: 100%;
-    width: 100%;
+
+    h2{
+        color: white;
+    }
+
+    .info{
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
 }

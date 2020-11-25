@@ -47,7 +47,7 @@
                         @endhasrole
 
                         @hasrole('User')
-                        <p>2</p>
+                            <p>2</p>
                         @endhasrole
 
 
