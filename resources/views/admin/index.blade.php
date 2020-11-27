@@ -22,8 +22,8 @@
                     <tr class="tablesupplies">
                         <th scope="row">{{$user->id}}</th>
                         <td>{{$user->name}}</td>
-                        <td>{{$user->email}}
-                        </td>
+                        <td>{{$user->email}}</td>
+                        <td><a href="{{ route('Admin.edit', $user->id) }}">Edit</a></td>
                     </tr>
                 @endforeach
 

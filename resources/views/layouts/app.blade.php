@@ -49,7 +49,9 @@
                         @endhasrole
 
                         @hasrole('User')
-                            <p>2</p>
+                        <li class="nav-item">
+{{--                            <a class="nav-link" href="{{ route('User.index') }}">Information User</a>--}}
+                        </li>
                         @endhasrole
 
 

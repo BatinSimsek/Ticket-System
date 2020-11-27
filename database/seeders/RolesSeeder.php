@@ -21,6 +21,11 @@ class RolesSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
+                'name' => 'Moderator',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
                 'name' => 'User',
                 'created_at' => now(),
                 'updated_at' => now()
