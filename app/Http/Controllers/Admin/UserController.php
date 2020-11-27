@@ -50,10 +50,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $Admin
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $Admin)
     {
         //
     }
@@ -61,28 +61,29 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $Admin
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(User $user)
+    public function edit(User $Admin)
     {
 
-        dd($user);
         $roles = Role::all();
 
-        return view('Admin.edit', ['roles' => $roles, 'user' => $user]);
+        return view('Admin.edit', ['roles' => $roles, 'user' => $Admin]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\User  $Admin
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $Admin)
     {
-        //
+        $Admin->roles()->sync($request->roles);
+
+        return redirect()->route('Admin.index');
     }
 
     /**
