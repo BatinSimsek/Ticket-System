@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Role;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -23,7 +24,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.index', ['users' => $users]);
+        return view('admin.user.index', ['users' => $users]);
     }
 
     /**
@@ -50,10 +51,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $Admin
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $Admin)
+    public function show(User $user)
     {
         //
     }
@@ -61,29 +62,29 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $Admin
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(User $Admin)
+    public function edit(User $user)
     {
 
         $roles = Role::all();
 
-        return view('Admin.edit', ['roles' => $roles, 'user' => $Admin]);
+        return view('admin.user.edit', ['roles' => $roles, 'user' => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $Admin
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, User $Admin)
+    public function update(Request $request, User $user)
     {
-        $Admin->roles()->sync($request->roles);
+        $user->roles()->sync($request->roles);
 
-        return redirect()->route('Admin.index');
+        return redirect()->route('admin.user.index');
     }
 
     /**

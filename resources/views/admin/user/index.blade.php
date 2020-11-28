@@ -24,7 +24,7 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{ implode(',', $user->roles()->get()->pluck('name')->toArray()) }}</td>
-                        <td><a href="{{ route('Admin.edit', $user->id) }}">Edit</a></td>
+                        <td><a href="{{ route('admin.user.edit', $user->id) }}">Edit</a></td>
                     </tr>
                 @endforeach
 

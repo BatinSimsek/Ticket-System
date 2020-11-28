@@ -7,7 +7,7 @@
             <h2>User edit page </h2>
             <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet aperiam blanditiis consequatur dolore id iste itaque nisi officia reiciendis! Distinctio dolor dolore doloremque esse impedit, iusto nostrum quidem vitae?</p>
 
-            <form action="{{ route('Admin.update', $user->id) }}" method="post">
+            <form action="{{ route('admin.user.update', $user) }}" method="post">
                     @method('PUT')
                     @csrf
 

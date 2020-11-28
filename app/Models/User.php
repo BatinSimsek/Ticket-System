@@ -39,17 +39,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    //Registreerd the role_user id
     public function roles(){
         return $this->belongsToMany('App\Models\Role');
+    }
+    //roept hasroleprovider aan om te checken welke role je bent om link te laten zien
+    public function hasAnyRole($role){
+        return null !== $this->roles()->where('name', $role)->first();
+    }
+
+    public function hasRole($role){
+        if($this->roles()->where('name', $role)->first()){
+            return true;
+        }
+        return false;
     }
 
     public function ticket(){
         return $this->belongsTo('App\Models\Ticket');
     }
 
-    public function hasAnyRole($role){
-        return null !== $this->roles()->where('name', $role)->first();
-    }
 
 }

@@ -41,18 +41,18 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        @auth()
+                            @hasrole('Admin')
+                                <li class="nav-item">
+                                  <a class="nav-link" href="{{ route('admin.user.index') }}">Information User</a>
+                                </li>
+                            @endhasrole
 
-                        @hasrole('Admin')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('Admin.index') }}">Information User</a>
-                        </li>
-                        @endhasrole
-
-                        @hasrole('User')
-                        <li class="nav-item">
-{{--                            <a class="nav-link" href="{{ route('User.index') }}">Information User</a>--}}
-                        </li>
-                        @endhasrole
+                            @hasrole('User')
+                                <li class="nav-item">
+                                </li>
+                            @endhasrole
+                        @endauth
 
 
                         <!-- Authentication Links -->
@@ -89,6 +89,8 @@
                         @endguest
                     </ul>
                 </div>
+
+
             </div>
         </nav>
 
