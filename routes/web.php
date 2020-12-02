@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\User\UserControllers;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +27,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // admin Routes
 Route::prefix('admin')->name('admin.')->middleware('can:admin')->group(function (){
     Route::resource('/user', UserController::class);
+});
+
+//User Routes
+Route::prefix('users')->name('users.')->group(function (){
+    Route::resource('/user', UserControllers::class);
 });
