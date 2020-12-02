@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\User\UserControllers;
-
+use App\Http\Controllers\User\Ticketcontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,4 +32,5 @@ Route::prefix('admin')->name('admin.')->middleware('can:admin')->group(function 
 //User Routes
 Route::prefix('users')->name('users.')->group(function (){
     Route::resource('/user', UserControllers::class);
+    Route::resource('/tickets', Ticketcontroller::class);
 });
