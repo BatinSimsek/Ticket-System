@@ -25,18 +25,21 @@
                 <img src="{{ asset('img/hps.svg') }}" alt="hps.svg">
                 <h3>Who are we</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam cum cumque deleniti distinctio eos, error ex facere facilis in inventore laboriosam molestiae mollitia natus, placeat rem ullam unde vitae.</p>
+                <a class="button-second" href="/">lorem ipsum</a>
             </div>
 
             <div class="info-box">
                 <img src="{{ asset('img/hps.svg') }}" alt="hps.svg">
                 <h3>Who are we</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam cum cumque deleniti distinctio eos, error ex facere facilis in inventore laboriosam molestiae mollitia natus, placeat rem ullam unde vitae.</p>
+                <a class="button-second" href="/">lorem ipsum</a>
             </div>
 
             <div class="info-box">
                 <img src="{{ asset('img/hps.svg') }}" alt="hps.svg">
                 <h3>Who are we</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam cum cumque deleniti distinctio eos, error ex facere facilis in inventore laboriosam molestiae mollitia natus, placeat rem ullam unde vitae.</p>
+                <a class="button-second" href="/">lorem ipsum</a>
             </div>
 
         </div>
@@ -56,7 +59,7 @@
                     <img src="{{ asset('img/callcenter.svg') }}" alt="call.svg">
                     <h3>Ticket</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium alias blanditiis corporis, cupiditate eligendi eum maxime quidem. Atque beatae, ex id impedit itaque magnam maiores non quaerat quo suscipit?</p>
-                    <p>link</p>
+                    <a class="button-third" href="/">lorem ipsum</a>
                 </div>
             </div>
 
@@ -65,8 +68,7 @@
                     <img src="{{ asset('img/callcenter.svg') }}" alt="call.svg">
                     <h3>Ticket</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium alias blanditiis corporis, cupiditate eligendi eum maxime quidem. Atque beatae, ex id impedit itaque magnam maiores non quaerat quo suscipit?</p>
-                    <p>link</p>
-
+                    <a class="button-third" href="/">lorem ipsum</a>
                 </div>
             </div>
 
@@ -75,7 +77,7 @@
                     <img src="{{ asset('img/callcenter.svg') }}" alt="call.svg">
                     <h3>Ticket</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium alias blanditiis corporis, cupiditate eligendi eum maxime quidem. Atque beatae, ex id impedit itaque magnam maiores non quaerat quo suscipit?</p>
-                    <p>link</p>
+                    <a class="button-third" href="/">lorem ipsum</a>
                 </div>
             </div>
 
