@@ -9,7 +9,7 @@ class Ticket extends Model
 {
     //
     public function users() {
-        $this->hasOne('App\Models\User');
+        $this->belongsToMany('App\Models\User');
     }
 
 }

@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        $ticketuser = Ticket::all();
         $adminrole = Role::where('name', 'Admin')->first();
         $userrole  = Role::where('name', 'User')->first();
 
@@ -38,6 +39,7 @@ class UserSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
+       $user->ticket()->attach($ticketuser);
        $admin->roles()->attach($adminrole);
        $user->roles()->attach($userrole);
     }

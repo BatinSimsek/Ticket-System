@@ -15,8 +15,14 @@ class TicketSeeder extends Seeder
     {
         \DB::table('tickets')->insert([
             [
+                'title' => 'Pc wont start' ,
                 'ticket'  => 'Pc wont start ',
-                'user_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'Pc wont start' ,
+                'ticket'  => 'Pc wont start ',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
