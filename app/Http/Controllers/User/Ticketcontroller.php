@@ -4,7 +4,6 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Ticket;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +23,8 @@ class Ticketcontroller extends Controller
     {
         $user = Auth::user();
 
-        $ticket  = Ticket::all();
+        //Roept de user_id op
+        $ticket = request()->user()->ticket()->get();
 
         return view('users.tickets.index', compact($user), ['ticket' => $ticket]);
     }
@@ -57,6 +57,7 @@ class Ticketcontroller extends Controller
          $ticket->ticket = $request->ticket;
          $ticket->save();
 
+         //Link de ticket_id met de user_id table
          $ticket->users()->attach(Auth::id());
 
         return redirect()->route('users.tickets.index');

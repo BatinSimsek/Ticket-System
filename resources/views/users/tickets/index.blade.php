@@ -11,9 +11,7 @@
             <a href="{{ route('users.tickets.create') }}">CREATE</a>
 
             @foreach($ticket as $tickets)
-                @if($tickets->ticket_id === $tickets->user_id)
-                    {{$tickets->name}}
-                @endif
+                {{ $tickets->title }}
             @endforeach
     </div>
     </div>
