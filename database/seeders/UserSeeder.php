@@ -39,8 +39,18 @@ class UserSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
+        $userextra = User::create([
+            'name'       => 'jeff',
+            'email'      => 'users@users.com',
+            'password'   => Hash::make('1234'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
        $user->ticket()->attach($ticketuser);
        $admin->roles()->attach($adminrole);
        $user->roles()->attach($userrole);
+       $userextra->roles()->attach($userrole);
+
     }
 }

@@ -7,9 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'ticket',
+    ];
+
     //
     public function users() {
-        $this->belongsToMany('App\Models\User');
+        return $this->belongsToMany(User::class, 'ticket_user');
     }
 
 }
