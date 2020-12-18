@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Ticket;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,12 +18,11 @@ class Ticketcontroller extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
         $user = Auth::user();
-
         //Roept de user_id op
         $ticket = request()->user()->ticket()->get();
 
@@ -32,7 +32,7 @@ class Ticketcontroller extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
@@ -47,18 +47,18 @@ class Ticketcontroller extends Controller
      */
     public function store(Request $request)
     {
-         $this->validate($request, array(
-             'title'      => 'required',
-             'ticket'     => 'required'
-         ));
+        $this->validate($request, array(
+            'title'      => 'required',
+            'ticket'     => 'required'
+        ));
 
-         $ticket = new Ticket;
-         $ticket->title = $request->title;
-         $ticket->ticket = $request->ticket;
-         $ticket->save();
+        $ticket = new Ticket;
+        $ticket->title = $request->title;
+        $ticket->ticket = $request->ticket;
+        $ticket->save();
 
-         //Link de ticket_id met de user_id table
-         $ticket->users()->attach(Auth::id());
+        //Link de ticket_id met de user_id table
+        $ticket->users()->attach(Auth::id());
 
         return redirect()->route('users.tickets.index');
     }
@@ -66,10 +66,10 @@ class Ticketcontroller extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ticket $ticket)
     {
         //
     }
@@ -77,33 +77,46 @@ class Ticketcontroller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Ticket  $ticket
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
      */
-    public function edit($id)
+    public function edit(Ticket $ticket, Request $request)
     {
-        //
+
+        if (!$ticket->users->contains($request->user())) {
+            return abort(403);
+        }
+
+        return view('users.tickets.edit', [
+            'ticket' => $ticket
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Ticket  $ticket
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Ticket $ticket)
     {
-        //
+        $ticket->update([
+            'title' => $request->title,
+            'ticket' => $request->ticket
+        ]);
+
+        return redirect()->route('users.tickets.show');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ticket $ticket)
     {
         //
     }

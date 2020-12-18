@@ -12,6 +12,7 @@
 
             @foreach($ticket as $tickets)
                 {{ $tickets->title }}
+                <a href="{{ route('users.tickets.edit', $tickets->id) }}">Edit Ticket</a>
             @endforeach
     </div>
     </div>
