@@ -67,11 +67,16 @@ class Ticketcontroller extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Ticket  $ticket
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show(Ticket $ticket)
+    public function show(Ticket $ticket, Request $request)
     {
-        //
+        if (!$ticket->users->contains($request->user())) {
+            return abort(403);
+        }
+
+        return view('users.tickets.show', ['ticket' => $ticket]);
     }
 
     /**
@@ -83,7 +88,7 @@ class Ticketcontroller extends Controller
      */
     public function edit(Ticket $ticket, Request $request)
     {
-
+        //check of de user hoort bij de user_id zo niet gooi abort
         if (!$ticket->users->contains($request->user())) {
             return abort(403);
         }
@@ -107,17 +112,20 @@ class Ticketcontroller extends Controller
             'ticket' => $request->ticket
         ]);
 
-        return redirect()->route('users.tickets.show');
+        return redirect()->route('users.tickets.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Ticket  $ticket
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Ticket $ticket)
     {
-        //
+        //delete methode detach de user van de ticket_user
+        $ticket->users()->detach();
+        $ticket->delete();
+        return redirect()->route('users.tickets.index');
     }
 }
