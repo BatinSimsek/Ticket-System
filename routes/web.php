@@ -26,11 +26,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // admin Routes
 Route::prefix('admin')->name('admin.')->middleware('can:admin')->group(function (){
-    Route::resource('/user', UserController::class);
+    Route::resource('/user', UserController::class, ['except' => ['show', 'store']]);
 });
 
 //User Routes
 Route::prefix('users')->name('users.')->group(function (){
     Route::resource('/user', UserControllers::class);
-    Route::resource('/tickets', Ticketcontroller::class);
+    //custom controller
+    Route::get('tickets/export', [Ticketcontroller::class, 'export'])->name('ticket.export_excel');
+    Route::resource('tickets', Ticketcontroller::class);
+
 });

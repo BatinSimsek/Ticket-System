@@ -7,6 +7,8 @@
 
             <h2>Welcome {{ Auth::user()->name }}</h2>
 
+            <a href="{{ route('users.ticket.export_excel') }}">Tickethistory</a>
+
 
             <a href="{{ route('users.tickets.create') }}">CREATE</a>
 

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Exports\TicketExport;
 use App\Http\Controllers\Controller;
 use App\Models\Ticket;
 use App\Models\User;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -127,5 +129,16 @@ class Ticketcontroller extends Controller
         $ticket->users()->detach();
         $ticket->delete();
         return redirect()->route('users.tickets.index');
+    }
+
+    /**
+     *
+     * Export all organization user courses
+     *
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
+    public function export()
+    {
+       return Excel::download(new TicketExport,'users.xlsx');
     }
 }
